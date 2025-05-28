@@ -1,1 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ConvertXpert</title>
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #222;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background-color: #121212;
+      color: #ddd;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1rem;
+      background: #0a74da;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* Hamburger menu */
+    .hamburger {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 25px;
+    }
+    .hamburger div {
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    /* Site name */
+    .site-name {
+      font-weight: 900;
+      font-size: 1.8rem;
+      letter-spacing: 5px;
+      flex-grow: 1;
+      text-align: center;
+      user-select: none;
+      text-transform: uppercase;
+    }
+
+    /* Right icons container */
+    .right-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* Search icon */
+    .search-icon {
+      cursor: pointer;
+      width: 22px;
+      height: 22px;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* Search input */
+    .search-box {
+      position: absolute;
+      top: 60px;
+      right: 15px;
+      display: none;
+    }
+    .search-box input {
+      padding: 6px 10px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1.5px solid #0a74da;
+      outline: none;
+      width: 200px;
+    }
+
+    /* Dark mode toggle */
+    .dark-toggle {
+      cursor: pointer;
+      background: transparent;
+      border: 2px solid white;
+      border-radius: 20px;
+      padding: 4px 10px;
+      color: white;
+      font-weight: 700;
+      user-select: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .dark-toggle:hover {
+      background-color: white;
+      color: #0a74da;
+    }
+
+    /* Responsive banner placeholder */
+    .banner-ad {
+      margin: 10px auto;
+      background-color: #e0e0e0;
+      width: 90%;
+      max-width: 970px;
+      height: 90px;
+      border: 2px dashed #888;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #555;
+      font-size: 1.2rem;
+      user-select: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .site-name {
+        font-size: 1.3rem;
+      }
+      .banner-ad {
+        height: 60px;
+      }
+      .search-box input {
+        width: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <!-- Hamburger menu -->
+  <div class="hamburger" id="hamburger" title="Menu">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Site Name -->
+  <div class="site-name">CONVERT XPERT</div>
+
+  <!-- Right side icons -->
+  <div class="right-icons">
+    <!-- Search icon SVG -->
+    <svg class="search-icon" id="searchIcon" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="7" />
+      <line x1="16" y1="16" x2="22" y2="22" />
+    </svg>
+
+    <!-- Dark mode toggle -->
+    <button class="dark-toggle" id="darkToggle" aria-label="Toggle Dark Mode">Dark</button>
+  </div>
+</header>
+
+<!-- Search box - hidden initially -->
+<div class="search-box" id="searchBox">
+  <input type="text" placeholder="Search tools..." aria-label="Search tools" />
+</div>
+
+<!-- Banner ad placeholder -->
+<div class="banner-ad">
+  <!-- Your ad code here: Paste your ads network code inside this div -->
+  Banner Ad Placeholder (Responsive)
+</div>
+
+<script>
+  // Toggle search box visibility on search icon click
+  const searchIcon = document.getElementById('searchIcon');
+  const searchBox = document.getElementById('searchBox');
+
+  searchIcon.addEventListener('click', () => {
+    if (searchBox.style.display === 'block') {
+      searchBox.style.display = 'none';
+    } else {
+      searchBox.style.display = 'block';
+      searchBox.querySelector('input').focus();
+    }
+  });
+
+  // Dark mode toggle
+  const darkToggle = document.getElementById('darkToggle');
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    if(document.body.classList.contains('dark-mode')) {
+      darkToggle.textContent = 'Light';
+    } else {
+      darkToggle.textContent = 'Dark';
+    }
+  });
+
+  // Hamburger menu click (for future menu opening)
+  const hamburger = document.getElementById('hamburger');
+  hamburger.addEventListener('click', () => {
+    alert('Menu click - aap apni menu functionality yaha add kar sakte hain.');
+  });
+</script>
+
+</body>
+</html>
 
